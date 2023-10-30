@@ -14,6 +14,7 @@ locacoes_db = []
 IDultimalocacao = 0
 quantidadeDeCarros = 10
 
+# POST /locacoes
 @app.post("/locacoes", response_model=Locacao)
 def nova_locacao(locacao: Locacao):
     global IDultimalocacao
@@ -26,3 +27,8 @@ def nova_locacao(locacao: Locacao):
         locacoes_db.append(locacao)
         IDultimalocacao += 1
     return locacao
+
+#GET /locacoes
+@app.get("/locacoes", response_model=List[Locacao])
+def get_locacoes():
+    return locacoes_db
