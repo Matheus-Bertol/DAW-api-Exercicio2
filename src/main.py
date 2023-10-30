@@ -22,7 +22,7 @@ def nova_locacao(locacao: Locacao):
     locacao.id = IDultimalocacao + 1
     
     if len(locacoes_db) >= quantidadeDeCarros:
-        raise HTTPException(status_code=400, detail=f"Limite de {quantidadeDeCarros} locações atingido! Não é possível adicionar mais locações.")
+        raise HTTPException(status_code=400, detail="Limite de {quantidadeDeCarros} locações atingido! Não é possível adicionar mais locações.")
     else:
         locacoes_db.append(locacao)
         IDultimalocacao += 1
